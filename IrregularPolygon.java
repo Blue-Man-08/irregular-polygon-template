@@ -21,16 +21,28 @@ public class IrregularPolygon {
         double perimeter = 0.0;
         for(int i = 0; i < myPolygon.size()-1; i++){
             Point2D.Double point = myPolygon.get(i);
-            Point2D.Double point2 = myPolygon.get(i+1);
-            perimeter += point.distance(point2);
+            Point2D.Double points = myPolygon.get(i+1);
+            perimeter += point.distance(points);
         }
         perimeter += myPolygon.get(myPolygon.size()-1).distance(myPolygon.get(0));
         return perimeter;
     }
 
     public double area() {
-        // TODO: Calculate the area.
-        return 0.0;
+        double first = 0;
+        double second = 0;
+        for(int i = 0; i<myPolygon.size()-1;i++){
+            Point2D.Double point = myPolygon.get(i);
+            Point2D.Double points = myPolygon.get(i+1);
+            first += point.x * points.y;
+            second += point.y * points.x;
+        }
+        double area  = 0;
+        first += myPolygon.get(myPolygon.size()-1).x * myPolygon.get(0).y;
+        second += myPolygon.get(myPolygon.size()-1).y * myPolygon.get(0).x;
+        area = 0.5 * (second-second);
+        area = Math.abs(area);
+        return area;
     }
 
     public void draw()
