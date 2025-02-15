@@ -1,8 +1,5 @@
 import java.awt.geom.*; // for Point2D.Double
 import java.util.ArrayList; // for ArrayList
-import java.util.concurrent.TimeUnit;
-
-import gpdraw.*; // for DrawingTool
 
 
 public class IrregularPolygon {
@@ -19,28 +16,28 @@ public class IrregularPolygon {
 
     public double perimeter() {
         double perimeter = 0.0;
-        for(int i = 0; i < myPolygon.size()-1; i++){
+        for(int i = 0; i < myPolygon.size() - 1; i++){
             Point2D.Double point = myPolygon.get(i);
-            Point2D.Double points = myPolygon.get(i+1);
+            Point2D.Double points = myPolygon.get(i + 1);
             perimeter += point.distance(points);
         }
-        perimeter += myPolygon.get(myPolygon.size()-1).distance(myPolygon.get(0));
+        perimeter += myPolygon.get(myPolygon.size() - 1).distance(myPolygon.get(0));
         return perimeter;
     }
 
     public double area() {
-        double first = 0;
-        double second = 0;
-        for(int i = 0; i<myPolygon.size()-1;i++){
+        double first = 0.0;
+        double second = 0.0;
+        for(int i = 0; i < myPolygon.size() - 1; i++){
             Point2D.Double point = myPolygon.get(i);
             Point2D.Double points = myPolygon.get(i+1);
             first += point.x * points.y;
             second += point.y * points.x;
         }
-        double area  = 0;
-        first += myPolygon.get(myPolygon.size()-1).x * myPolygon.get(0).y;
-        second += myPolygon.get(myPolygon.size()-1).y * myPolygon.get(0).x;
-        area = 0.5 * (second-second);
+        double area  = 0.0;
+        first += myPolygon.get(myPolygon.size() - 1).x * myPolygon.get(0).y;
+        second += myPolygon.get(myPolygon.size() - 1).y * myPolygon.get(0).x;
+        area = 0.5 * (first - second);
         area = Math.abs(area);
         return area;
     }

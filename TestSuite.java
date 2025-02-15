@@ -38,7 +38,6 @@ public class TestSuite {
             //System.out.println("  Adding point: " + Arrays.toString(point));
             poly.add(new Point2D.Double(point[0], point[1]));
         }
-        poly.draw();
 
         double perimeter = poly.perimeter();
         double area = poly.area();
